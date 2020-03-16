@@ -1,21 +1,33 @@
-import React, { Component } from "react";
+import React, { Fragment } from "react";
+import {
+  MDBNavbar,
+  MDBNavbarBrand,
+  MDBContainer
+} from "mdbreact";
 
-/* const Header = () => (
-  <AppBar position="static">
-    <Toolbar>
-      <IconButton
-        edge="start"
-        className={classes.menuButton}
-        color="inherit"
-        aria-label="menu"
-      >
-        <MenuIcon />
-      </IconButton>
-      <Typography variant="h6" className={classes.title}>
-        News
-      </Typography>
-      <Button color="inherit">Login</Button>
-    </Toolbar>
-  </AppBar>
+import "./header.styles.css";
+
+const Header = () => (
+  <Fragment>
+      <div>
+        <MDBNavbar
+          color="blue"
+          dark
+          expand="md"
+          fixed="top"
+          scrolling
+          transparent
+        >
+          <MDBContainer>
+            <MDBNavbarBrand>
+              <strong className="white-text">Baby Monitor</strong>
+            </MDBNavbarBrand>
+          </MDBContainer>
+        </MDBNavbar>
+      </div>
+
+    
+  </Fragment>
 );
- */
+
+export default Header;

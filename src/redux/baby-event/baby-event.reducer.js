@@ -1,6 +1,6 @@
 import * as types from "./baby-event.types";
 
-const eventsToBaby = (state = {}, action) => {
+const babyEvents = (state = {}, action) => {
   switch (action.type) {
     case types.BABY_EVENT_ADDED: {
       if (state[action.payload.babyId]) {
@@ -30,6 +30,6 @@ const eventsToBaby = (state = {}, action) => {
   }
 };
 
-export default eventsToBaby;
+export default babyEvents;
 
 export const getBabyEvents = (state, babyId) => state[babyId];

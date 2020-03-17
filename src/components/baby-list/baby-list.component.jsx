@@ -1,74 +1,26 @@
 import React from "react";
-import { MDBListGroup, MDBListGroupItem, MDBBadge } from "mdbreact";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import * as selectors from "../../redux/root-reducer";
 
+import { MDBListGroup } from "mdbreact";
+import BabyItem from "../baby-item/baby-item.component";
 import "./baby-list.styles.css";
 
-const BabyList = () => (
+const BabyList = ({ babies }) => (
   <div className="white-text text-center text-md-left col-md-6 mb-5">
     <MDBListGroup>
-      <MDBListGroupItem className="d-flex black-text justify-content-between align-items-center">
-        <div className="d-flex align-items-center">
-          <img
-            src="https://source.unsplash.com/200x200/?baby"
-            className="rounded-circle z-depth-1 baby-photo"
-            alt="Sample avatar"
-          />{" "}
-          <span class="baby-name">Juan David</span>
-        </div>
-
-        <MDBBadge color="primary" pill>
-          2
-        </MDBBadge>
-      </MDBListGroupItem>
-
-      <MDBListGroupItem className="d-flex black-text justify-content-between align-items-center">
-        <div className="d-flex align-items-center">
-          <img
-            src="https://source.unsplash.com/202x202/?baby"
-            className="rounded-circle z-depth-1 baby-photo"
-            alt="Sample avatar"
-          />{" "}
-          <span class="baby-name">Juan David</span>
-        </div>
-
-        <MDBBadge color="primary" pill>
-          2
-        </MDBBadge>
-      </MDBListGroupItem>
-
-      <MDBListGroupItem className="d-flex black-text justify-content-between align-items-center">
-        <div className="d-flex align-items-center">
-          <img
-            src="https://source.unsplash.com/201x201/?baby"
-            className="rounded-circle z-depth-1 baby-photo"
-            alt="Sample avatar"
-          />{" "}
-          <span class="baby-name">Juan David</span>
-        </div>
-
-        <MDBBadge color="primary" pill>
-          2
-        </MDBBadge>
-      </MDBListGroupItem>
-
-      <MDBListGroupItem className="d-flex black-text justify-content-between align-items-center">
-        <div className="d-flex align-items-center">
-          <img
-            src="https://source.unsplash.com/203x203/?baby"
-            className="rounded-circle z-depth-1 baby-photo"
-            alt="Sample avatar"
-          />{" "}
-          <span class="baby-name">Juan David</span>
-        </div>
-
-        <MDBBadge color="primary" pill>
-          2
-        </MDBBadge>
-      </MDBListGroupItem>
-
-      
+      {babies.length === 0 ? (
+        <h4>{"No hay bebes aun..."}</h4>
+      ) : (
+        babies.map(id => <BabyItem key={id} id={id} />)
+      )}
     </MDBListGroup>
   </div>
 );
 
-export default BabyList;
+const mapStateToProps = (state) => ({
+  babies: selectors.getBabies(state)
+})
+
+export default connect(mapStateToProps)(BabyList);

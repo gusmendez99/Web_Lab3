@@ -9,3 +9,8 @@ export const addEvent = (id, type, description, date) => ({
         date
     }
 });
+
+export const deleteEvent = (id) => ({
+    type: types.EVENT_DELETED,
+    payload: id
+})

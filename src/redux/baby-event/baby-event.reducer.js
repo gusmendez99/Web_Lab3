@@ -1,3 +1,4 @@
+import omit from 'lodash/omit';
 import * as types from "./baby-event.types";
 
 const babyEvents = (state = {}, action) => {
@@ -21,7 +22,7 @@ const babyEvents = (state = {}, action) => {
     case types.BABY_EVENT_DELETED: {
       return {
         ...state,
-        [action.payload.babyId]: state[action.payload.babyId].filter(event => event === action.payload.eventId)
+        [action.payload.babyId]: omit(...state[action.payload.babyId], action.payload.eventId)
       };
     }
     default: {

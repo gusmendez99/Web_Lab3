@@ -1,4 +1,6 @@
 import * as types from './event.types'
+import omit from 'lodash/omit'
+
 import { EVENT_TYPES } from './event.data'
 
 const event = (state = {}, action) => {
@@ -8,6 +10,9 @@ const event = (state = {}, action) => {
                 ...state,
                 [action.payload.id] : action.payload
             };
+        }
+        case types.EVENT_DELETED: {
+            return omit(state, action.payload);
         }
         default:
             return state;

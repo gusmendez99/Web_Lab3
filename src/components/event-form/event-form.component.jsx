@@ -37,7 +37,10 @@ const EventForm = ({ id, onSubmit, types }) => {
             onChange={e => changeDescription(e.target.value)}
           />
           <div className="text-center mt-3 black-text">
-            <MDBBtn color="red" onClick={() => onSubmit(id, type, description)}>
+            <MDBBtn color="red" onClick={() => {
+              const myType = (!type || type === "") ? types[0].name : type
+              onSubmit(id, myType, description)
+            }}>
               Add Event
             </MDBBtn>
           </div>
@@ -51,7 +54,7 @@ const mapStateToProps = (state) => ({
   types: selectors.getEventTypes()
 })
 
-const mapDispatchToProps = (dispatch, { id }) => ({
+const mapDispatchToProps = (dispatch) => ({
   onSubmit(babyId, type, description) {
     const eventId = uuidv4();
     dispatch(eventActions.addEvent(eventId, type, description, moment().format('MMMM Do YYYY, h:mm:ss a')));

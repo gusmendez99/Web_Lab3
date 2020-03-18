@@ -1,18 +1,23 @@
-export const EVENT_TYPES = {
-    0: {
+export const EVENT_TYPES = [
+    {
+        id: 1,
         name: 'Sleep'
     },
-    1: {
+    {
+        id: 2,
         name: 'Milk from bottle'
     },
-    2: {
+    {
+        id: 3,
         name: 'Poop'
     },
-    3: {
+    {
+        id: 4,
         name: 'Pee'
     },
-    4: {
+    {
+        id: 5,
         name: 'Milk from breast'
     }
-}
+]
     

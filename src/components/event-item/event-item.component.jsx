@@ -1,18 +1,16 @@
 import React, { Fragment } from "react";
-import { MDBListGroupItem, MDBBadge } from "mdbreact";
+import { MDBListGroupItem } from "mdbreact";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 
-import "./baby-item.styles.css";
+import "./event-item.styles.css";
 import * as selectors from "../../redux/root-reducer";
 import * as actions from "../../redux/baby/baby.actions";
 
-const BabyItem = ({ data, eventsCount, onClick }) => {
+const EventItem = ({ data }) => {
   const photoSize = Math.floor(Math.random() * 10);
 
   return (
     <Fragment>
-      <Link to={`/${data.id}`}>
         <MDBListGroupItem className="d-flex black-text justify-content-between align-items-center">
           <div className="d-flex align-items-center">
             <img
@@ -21,29 +19,17 @@ const BabyItem = ({ data, eventsCount, onClick }) => {
               alt="Sample avatar"
             />{" "}
             <span className="baby-name">
-              {data.firstName + " " + data.lastName}
+              {"Nothing here yet..."}
             </span>
           </div>
-
-          <MDBBadge color="primary" pill>
-            {eventsCount}
-          </MDBBadge>
         </MDBListGroupItem>
-      </Link>
     </Fragment>
   );
 };
 
 const mapStateToProps = (state, { id }) => ({
-  data: selectors.getBaby(state, id),
-  eventsCount: selectors.getBabyEvents(state, id).length
+  data: selectors.getEvent(state, id)
 });
 
-const mapDispatchToProps = (dispatch, { id }) => ({
-  onClick() {
-    console.log(id);
-    dispatch(actions.selectBaby(id));
-  }
-});
 
-export default connect(mapStateToProps, mapDispatchToProps)(BabyItem);
+export default connect(mapStateToProps)(EventItem);

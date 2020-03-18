@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { MDBCol, MDBBtn, MDBCard, MDBCardBody, MDBInput } from "mdbreact";
 
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 
 import * as actions from "../../redux/baby/baby.actions";
 
@@ -28,7 +27,7 @@ const BabyForm = ({ onSubmit }) => {
           />
           <div className="text-center mt-3 black-text">
             <MDBBtn color="blue" onClick={() => onSubmit(firstName, lastName)}>
-              Add
+              Add Baby
             </MDBBtn>
           </div>
         </MDBCardBody>
@@ -37,8 +36,10 @@ const BabyForm = ({ onSubmit }) => {
   );
 };
 
-export default connect(undefined, dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   onSubmit(firstName, lastName) {
     dispatch(actions.addBaby(firstName, lastName));
   }
-}))(BabyForm);
+})
+
+export default connect(undefined, mapDispatchToProps)(BabyForm);

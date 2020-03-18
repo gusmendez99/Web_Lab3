@@ -32,4 +32,4 @@ const babyEvents = (state = {}, action) => {
 
 export default babyEvents;
 
-export const getBabyEvents = (state, babyId) => state[babyId];
+export const getBabyEvents = (state, babyId) => state[babyId] ? state[babyId] : [];

@@ -1,4 +1,5 @@
 import * as types from './event.types'
+import { EVENT_TYPES } from './event.data'
 
 const event = (state = {}, action) => {
     switch(action.type){
@@ -16,3 +17,4 @@ const event = (state = {}, action) => {
 export default event;
 
 export const getEvent = (state, id) => state[id];
+export const getEventTypes = () => EVENT_TYPES;

@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import * as selectors from "../../redux/root-reducer";
 
 import { MDBListGroup } from "mdbreact";
@@ -13,7 +12,7 @@ const BabyList = ({ babies }) => (
       {babies.length === 0 ? (
         <h4>{"No hay bebes aun..."}</h4>
       ) : (
-        babies.map(id => <BabyItem key={id} id={id} />)
+        babies.map(item => <BabyItem key={item.id} id={item.id} />)
       )}
     </MDBListGroup>
   </div>

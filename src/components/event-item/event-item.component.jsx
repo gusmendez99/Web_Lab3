@@ -26,7 +26,7 @@ const EventItem = ({ eventId, eventData, babyId, onDelete }) => {
               {eventData.type + " (" + eventData.date + ")"}
             </span>
           </div>
-          <span onClick={onDelete(babyId, eventId)}>
+          <span onClick={() => onDelete(babyId, eventId)}>
             <MDBIcon icon="trash" />
           </span>
         </MDBListGroupItem>
@@ -40,6 +40,8 @@ const mapStateToProps = (state, { eventId, babyId }) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onDelete(babyId, eventId) {
+    console.log('Trying to delete event from Baby')
+
     dispatch(babyEventActions.deleteBabyEvent(babyId, eventId));
     dispatch(eventActions.deleteEvent(eventId));
     

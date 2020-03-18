@@ -56,6 +56,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onSubmit(babyId, type, description) {
+    console.log('Trying to add new Event to Baby')
+
     const eventId = uuidv4();
     dispatch(eventActions.addEvent(eventId, type, description, moment().format('MMMM Do YYYY, h:mm:ss a')));
     dispatch(babyEventActions.addBabyEvent(babyId, eventId));

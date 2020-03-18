@@ -12,7 +12,7 @@ const BabyItem = ({ data, eventsCount, onClick }) => {
 
   return (
     <Fragment>
-      <Link to={`/${data.id}`}>
+      <Link to={`/baby/${data.id}`}>
         <MDBListGroupItem className="d-flex black-text justify-content-between align-items-center">
           <div className="d-flex align-items-center">
             <img

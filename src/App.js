@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Switch, Route } from 'react-router';
+import { Redirect, Switch, Route } from 'react-router';
 
 import '@fortawesome/fontawesome-free/css/all.min.css'; 
 import 'bootstrap-css-only/css/bootstrap.min.css'; 
@@ -15,7 +15,8 @@ import './App.css';
 const App = () => (
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/:id" component={EventsPage} />
+        <Route path="/baby/:id" component={EventsPage} />
+        <Route render={() => <Redirect to="/" />} />
       </Switch>
 )
 

@@ -1,8 +1,15 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+## Home Page
+
+![alt text](https://i.imgur.com/UIXskRe.png?1 "Home Page")
+
+## Events Page
+
+![alt text](https://i.imgur.com/yCWFu3L.png "Events Page")
+
+DEMO on [Heroku](https://baby-monitor-uvg.herokuapp.com/). In the project directory, you can run:
 
 ### `yarn start`
 
